@@ -37,6 +37,7 @@ core::Graph make_random_graph(std::size_t n, std::size_t m, unsigned int seed) {
     double w = weight_dist(rng);
     graph.add_edge(u, v, w);
   }
+  graph.finalize();
   return graph;
 }
 
@@ -59,6 +60,7 @@ core::Graph make_grid_graph(std::size_t rows, std::size_t cols) {
       }
     }
   }
+  graph.finalize();
   return graph;
 }
 
