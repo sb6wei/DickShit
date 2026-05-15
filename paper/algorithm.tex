@@ -1,0 +1,4 @@
+\section{Algorithm Overview}
+This framework follows a BMSSP-style hierarchical batching approach for directed single-source shortest paths.
+We apply approximate distance grouping via $\rho_i(v)=\lfloor d(v)/\Delta_i \rfloor$ with $\Delta_{i+1}=\Delta_i^{2/3}$, and perform recursive bucket decomposition
+with batched relaxation to reduce edge participation.
