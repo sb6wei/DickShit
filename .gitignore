@@ -1,0 +1,8 @@
+/build/
+/results/*
+!/results/.gitkeep
+*.o
+*.a
+*.so
+*.dylib
+*.exe

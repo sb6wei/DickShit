@@ -1,2 +1,0 @@
-/usr/bin/ar qc libbmssp_core.a CMakeFiles/bmssp_core.dir/src/algorithms/bmssp.cpp.o CMakeFiles/bmssp_core.dir/src/algorithms/dijkstra.cpp.o
-/usr/bin/ranlib libbmssp_core.a
