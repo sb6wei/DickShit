@@ -1,8 +1,8 @@
-# BMSSP-Style Directed SSSP Framework
+# BMSSP 风格有向单源最短路径框架
 
-This repository provides a research-oriented reproduction framework for a BMSSP-style hierarchical batching approach to directed single-source shortest paths. The framework emphasizes recursive bucket decomposition, approximate distance grouping, batched relaxation, and empirical complexity analysis, alongside a Dijkstra baseline.
+本仓库提供一个面向研究的复现框架，用于 BMSSP 风格的有向单源最短路径分层批处理方法。该框架强调递归桶分解、近似距离分组、批量松弛与经验复杂度分析，并提供 Dijkstra 基线作对比。
 
-## Project Structure
+## 项目结构
 
 ```
 project/
@@ -17,16 +17,16 @@ project/
 └── CMakeLists.txt
 ```
 
-## Build
+## 构建
 
 ```bash
 cmake -S . -B build
 cmake --build build --config Release
 ```
 
-## Benchmark Input Format
+## 基准输入格式
 
-Graph files are plain text:
+图文件为纯文本：
 
 ```
 n m
@@ -35,11 +35,11 @@ u1 v1 w1
 ...
 ```
 
-- `n`: number of nodes
-- `m`: number of directed edges
-- each edge uses zero-based indices and a positive weight
+- `n`：节点数量
+- `m`：有向边数量
+- 每条边使用从 0 开始的索引和正权重
 
-## Run Benchmark (single case)
+## 运行基准（单个用例）
 
 ```bash
 ./build/benchmark --type random --nodes 1000 --edges 5000 --output results/summary.csv
@@ -48,20 +48,20 @@ u1 v1 w1
 ./build/benchmark --input data/graph.txt
 ```
 
-Optional flags:
-- `--trace` to export trace logs
-- `--trace-prefix results/trace` for trace outputs
-- `--export-edges` to export edge participation counts
+可选参数：
+- `--trace` 导出追踪日志
+- `--trace-prefix results/trace` 设置追踪输出前缀
+- `--export-edges` 导出边参与次数统计
 
-## Run Full Experiments
+## 运行完整实验
 
 ```bash
 bash scripts/run_experiments.sh
 ```
 
-This script builds the project, runs the experiment runner (including an ablation with recursion disabled), performs complexity fitting, generates plots, and regenerates the LaTeX experiments section.
+该脚本会构建项目、运行实验执行器（包含关闭递归的消融实验）、进行复杂度拟合、生成图表，并重新生成 LaTeX 实验章节。
 
-## Outputs
+## 输出
 
 - `results/summary.csv`: per-run statistics
 - `results/analysis.csv`: aggregated mean/median stats
@@ -69,11 +69,11 @@ This script builds the project, runs the experiment runner (including an ablatio
 - `results/*_runtime.png`: matplotlib plots
 - `paper/experiments.tex`: auto-generated experiment table
 
-## Python Dependencies
+## Python 依赖
 
-The analysis and plotting scripts require Python 3. For plotting, install `matplotlib` (and optionally `numpy` for your own analysis).
+分析与绘图脚本需要 Python 3。绘图请安装 `matplotlib`（可选安装 `numpy` 以便自定义分析）。
 
-## Notes
+## 备注
 
-- The BMSSP-style implementation avoids a global priority queue and instead uses hierarchical bucket scheduling.
-- The Dijkstra baseline uses `std::priority_queue` for comparison only.
+- BMSSP 风格实现避免全局优先队列，改为使用分层桶调度。
+- Dijkstra 基线仅用于对比，使用 `std::priority_queue`。
