@@ -39,8 +39,7 @@ def main(summary_path, output_path):
                     row.append(f'{mean_ms:.2f}')
                 else:
                     row.append('--')
-            out.write(' & '.join(row) + ' \\\
-')
+            out.write(' & '.join(row) + ' \\\\\\n')
         out.write('\\bottomrule\n')
         out.write('\\end{tabular}\n')
         out.write('\\caption{BMSSP framework benchmark summary.}\n')
